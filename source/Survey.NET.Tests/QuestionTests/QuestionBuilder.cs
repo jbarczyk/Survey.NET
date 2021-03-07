@@ -8,21 +8,21 @@ namespace Survey.NET.Tests.QuestionTests
 {
     internal class QuestionBuilder
     {
-        private IAnswerTemplate _template = new PlainTextAnswerTemplate("Hint");
-        private IQuestionDescription _description = new TextQuestionDescription("Description");
+        private AnswerTemplate _template = new PlainTextAnswerTemplate("Hint");
+        private QuestionDescription _description = new TextQuestionDescription("Description");
         private Guid _id = Guid.NewGuid();
 
         private QuestionBuilder() { }
 
         public static QuestionBuilder GivenQuestion() => new QuestionBuilder();
 
-        public QuestionBuilder WithTemplate(IAnswerTemplate template)
+        public QuestionBuilder WithTemplate(AnswerTemplate template)
         {
             _template = template;
             return this;
         }
 
-        public QuestionBuilder WithDescription(IQuestionDescription description)
+        public QuestionBuilder WithDescription(QuestionDescription description)
         {
             _description = description;
             return this;

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Survey.NET.Domain.Question.Descriptions
 {
-    public class TextQuestionDescription : IQuestionDescription
+    public class TextQuestionDescription : QuestionDescription
     {
         private readonly string _description;
 
@@ -11,6 +12,11 @@ namespace Survey.NET.Domain.Question.Descriptions
             _description = description ?? throw new ArgumentNullException(nameof(description));
         }
 
-        public string PlainText() => _description;
+        public override string PlainText() => _description;
+
+        protected override IEnumerable<object> GetEqualityComponents()
+        {
+            yield return _description;
+        }
     }
 }

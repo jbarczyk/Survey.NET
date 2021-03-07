@@ -1,7 +1,9 @@
-﻿namespace Survey.NET.Domain.Question
+﻿using Survey.NET.Domain.Common;
+
+namespace Survey.NET.Domain.Question
 {
-    public interface IAnswerTemplate
+    public abstract class AnswerTemplate : ValueObject
     {
-        AnswerType Type { get; }
+        public abstract AnswerType Type { get; }
     }
 }

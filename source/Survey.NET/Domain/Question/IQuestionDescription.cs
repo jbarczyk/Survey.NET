@@ -1,7 +1,9 @@
-﻿namespace Survey.NET.Domain.Question
+﻿using Survey.NET.Domain.Common;
+
+namespace Survey.NET.Domain.Question
 {
-    public interface IQuestionDescription
+    public abstract class QuestionDescription : ValueObject
     {
-        string PlainText();
+        public abstract string PlainText();
     }
 }
