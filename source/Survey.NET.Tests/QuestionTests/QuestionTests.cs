@@ -25,6 +25,22 @@ namespace Survey.NET.Tests.QuestionTests
         }
 
         [Fact]
+        public void NewQuestion_Contains_DefaultDescription()
+        {
+            var question = GivenQuestion().Build();
+            var desc = question.PlainTextDescription();
+            Assert.Equal("Description", desc);
+        }
+
+        [Fact]
+        public void NewQuestion_Contains_DefaultAnswerType()
+        {
+            var question = GivenQuestion().Build();
+            var type = question.AnswerType();
+            Assert.Equal(AnswerType.PlainText, type);
+        }
+
+        [Fact]
         public void ChangeDescription_Produce_ChangedDescription()
         {
             var id = Guid.NewGuid();
