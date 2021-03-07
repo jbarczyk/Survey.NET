@@ -9,11 +9,8 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<p align="center">
-  <a href="https://github.com/jbarczyk/Survey.NET">
-    ![Logo](images/Logo.png?raw=true "Logo")
-  </a>
-
+<p align="center">  
+  <img src="images/Logo.png">
   <h3 align="center">Survey.NET</h3>
 
   <p align="center">
