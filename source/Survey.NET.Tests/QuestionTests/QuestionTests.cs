@@ -21,7 +21,9 @@ namespace Survey.NET.Tests.QuestionTests
             Assert.Single(events);
             Assert.Contains(events, x =>
                 x is QuestionCreated @event &&
-                @event.Id.Equals(id));
+                @event.Id.Equals(id) &&
+                @event.Description.Equals(new TextQuestionDescription("Description")) &&
+                @event.Template.Equals(new PlainTextAnswerTemplate("Hint")));
         }
 
         [Fact]
@@ -52,7 +54,8 @@ namespace Survey.NET.Tests.QuestionTests
             Assert.Equal(2, events.Count);
             Assert.Contains(events, x =>
                 x is QuestionDescriptionChanged @event &&
-                @event.Id.Equals(id));
+                @event.Id.Equals(id) &&
+                @event.Description.Equals(new TextQuestionDescription("Test")));
         }
 
         [Fact]
@@ -78,8 +81,9 @@ namespace Survey.NET.Tests.QuestionTests
             var events = question.GetUncommittedChanges().ToList();
             Assert.Equal(2, events.Count);
             Assert.Contains(events, x =>
-                x is QuestionTemplateChanged @event &&
-                @event.Id.Equals(id));
+                x is AnswerTemplateChanged @event &&
+                @event.Id.Equals(id) &&
+                @event.Template.Equals(new BooleanAnswerTemplate("Hint")));
         }
 
         [Fact]

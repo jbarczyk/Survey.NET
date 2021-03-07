@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Survey.NET.Common;
 
 namespace Survey.NET.Domain.Common
 {

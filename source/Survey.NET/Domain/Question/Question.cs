@@ -26,7 +26,7 @@ namespace Survey.NET.Domain.Question
             if (!_description.Equals(description))
             {
                 _description = description;
-                ApplyChange(new QuestionDescriptionChanged(Id));
+                ApplyChange(new QuestionDescriptionChanged(Id, _description));
             }
         }
 
@@ -36,7 +36,7 @@ namespace Survey.NET.Domain.Question
             if (!_template.Equals(template))
             {
                 _template = template;
-                ApplyChange(new QuestionTemplateChanged(Id));
+                ApplyChange(new AnswerTemplateChanged(Id, _template));
             }
         }
 
@@ -47,7 +47,7 @@ namespace Survey.NET.Domain.Question
         public static Question Create(QuestionIdentifier id, QuestionDescription description, AnswerTemplate template)
         {
             var newQuestion = new Question(id, description, template);
-            newQuestion.ApplyChange(new QuestionCreated(id));
+            newQuestion.ApplyChange(new QuestionCreated(id, description, template));
             return newQuestion;
         }
     }
